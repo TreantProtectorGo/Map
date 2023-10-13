@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #map {
+            position: relative;
+            width: 1065px;
+            height: 647px; 
+            background-image: url('your-map.png'); 
+        }
+        #point {
+            position: absolute;
+            width: 10px;
+            height: 10px; 
+            background-color: red; 
+        }
+    </style>
+</head>
+<body>
+    <div id="map">
+        <div id="point"></div>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const x = parseInt(urlParams.get('x'));
+        const y = parseInt(urlParams.get('y'));
+
+        if (!isNaN(x) && !isNaN(y)) {
+            const mapContainer = document.getElementById('map');
+            const pointElement = document.getElementById('point');
+
+            const pointX = x;
+            const pointY = y;
+
+            pointElement.style.left = `${pointX}px`;
+            pointElement.style.top = `${pointY}px`;
+        }
+    </script>
+</body>
+</html>
